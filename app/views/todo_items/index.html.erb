@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>To-do List</h1>
+<div id="filler"></div>
+<table>
+  <thead>
+    <tr>
+      <th colspan="6">To-do List</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_items.each do |todo_item| %>
+
+      <tr>
+        <td class="first"><%= todo_item.description %></td>
+        <td><%= link_to 'View', todo_item %></td>
+        <td><%= link_to 'Update', edit_todo_item_path(todo_item) %></td>
+        <td><%= link_to 'Mark done (delete)', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div id="filler"></div>
+<%= link_to 'Add to-do item', new_todo_item_path %>
